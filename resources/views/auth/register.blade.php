@@ -32,24 +32,24 @@
             <div class="mt-4">
                 <x-jet-label for="role_id" value="{{ __('Register as:') }}" />
                 <select name="role_id" x-model="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                    <option value="2">Student</option>
-                    <option value="3">Teacher</option>
+                    <option value="2">Client</option>
+                    <option value="3">Employee</option>
                 </select>
             </div>
 
             <div class="mt-4" x-show="role_id == 2">
-                <x-jet-label for="student_address" value="{{ __('Address') }}" />
-                <x-jet-input id="student_address" class="block mt-1 w-full" type="text" :value="old('student_address')" name="student_address" />
+                <x-jet-label for="your_address" value="{{ __('Your Address') }}" />
+                <x-jet-input id="your_address" class="block mt-1 w-full" type="text" :value="old('your_address')" name="your_address" />
             </div>
 
             <div class="mt-4" x-show="role_id == 2">
-                <x-jet-label for="student_licence_number" value="{{ __('Licence Number') }}" />
-                <x-jet-input id="student_licence_number" class="block mt-1 w-full" type="text" :value="old('student_licence_number')" name="student_licence_number" />
+                <x-jet-label for="your_phone_number" value="{{ __('Your Phone Number') }}" />
+                <x-jet-input id="you_phone_number" class="block mt-1 w-full" type="text" :value="old('your_phone_number')" name="your_your_number" />
             </div>
 
             <div class="mt-4" x-show="role_id == 3">
-                <x-jet-label for="teacher_qualifications" value="{{ __('Qualifications') }}" />
-                <x-jet-input id="teacher_qualifications" class="block mt-1 w-full" type="text" :value="old('teacher_qualifications')" name="teacher_qualifications" />
+                <x-jet-label for="employee_title" value="{{ __('Employee Title') }}" />
+                <x-jet-input id="employee_title" class="block mt-1 w-full" type="text" :value="old('employee_title')" name="employee_title" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Clients\ApplicationController;
+use App\Http\Controllers\Employees\ClientController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +25,15 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::group(['middleware' => 'role:student', 'prefix' => 'student', 'as' => 'student.'], function() {
-        Route::resource('lessons', \App\Http\Controllers\Students\LessonController::class);
+    Route::group(['middleware' => 'role:client', 'prefix' => 'client', 'as' => 'client.'], function() {
+        Route::resource('/client/applications', ApplicationController::class);
     });
-   Route::group(['middleware' => 'role:teacher', 'prefix' => 'teacher', 'as' => 'teacher.'], function() {
-       Route::resource('courses', \App\Http\Controllers\Teachers\CourseController::class);
+   Route::group(['middleware' => 'role:employee', 'prefix' => 'employee', 'as' => 'employee.'], function() {
+       Route::resource('/employee/clients', ClientController::class);
+    //    Route::get('/employee/clients', 'Employees\ClientController@index')->name('employee.clients.index');
+
    });
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
-        Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+        Route::resource('users', UserController::class);
     });
 });

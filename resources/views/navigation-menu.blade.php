@@ -23,14 +23,15 @@
                     @endif
 
                     @if (auth()->user()->role_id == 2)
-                        <x-jet-nav-link href="{{ route('student.lessons.index') }}" :active="request()->routeIs('student.lessons.index')">
-                            {{ __('Lessons') }}
+                        <x-jet-nav-link href="{{ route('client.applications.index') }}" :active="request()->routeIs('client.applications.index')">
+                            {{ __('Applicants') }}
                         </x-jet-nav-link>
                     @endif
 
-                    @can('manage-courses')
-                        <x-jet-nav-link href="{{ route('teacher.courses.index') }}" :active="request()->routeIs('teacher.courses.index')">
-                            {{ __('Courses') }}
+                    @can('manage-clients')
+                        <x-jet-nav-link href="{{ route('employee.clients.index') }}" :active="request()->routeIs('employee.clients.index')" >
+
+                            {{ __('Clients Management') }}
                         </x-jet-nav-link>
                     @endif
                 </div>
