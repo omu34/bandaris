@@ -6,7 +6,9 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img src="{{asset('assets/images/Logo.WEBP')}}" alt="" srcset="">
+
+                        {{--  <x-jet-application-mark class="block h-9 w-auto" />  --}}
                     </a>
                 </div>
 
@@ -24,14 +26,14 @@
 
                     @if (auth()->user()->role_id == 2)
                         <x-jet-nav-link href="{{ route('client.applications.index') }}" :active="request()->routeIs('client.applications.index')">
-                            {{ __('Applicants') }}
+                            {{ __('Application Form') }}
                         </x-jet-nav-link>
                     @endif
 
                     @can('manage-clients')
                         <x-jet-nav-link href="{{ route('employee.clients.index') }}" :active="request()->routeIs('employee.clients.index')" >
 
-                            {{ __('Clients Management') }}
+                            {{ __('Client Management') }}
                         </x-jet-nav-link>
                     @endif
                 </div>

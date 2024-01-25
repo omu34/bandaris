@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <img src="{{asset('assets/images/Logo.WEBP')}}" alt="" srcset="">
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -31,9 +31,11 @@
 
             <div class="mt-4">
                 <x-jet-label for="role_id" value="{{ __('Register as:') }}" />
-                <select name="role_id" x-model="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                <select name="role_id" x-model="role_id" class="block  mt-1 h-10 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+
                     <option value="2">Client</option>
                     <option value="3">Employee</option>
+
                 </select>
             </div>
 
@@ -44,29 +46,29 @@
 
             <div class="mt-4" x-show="role_id == 2">
                 <x-jet-label for="your_phone_number" value="{{ __('Your Phone Number') }}" />
-                <x-jet-input id="you_phone_number" class="block mt-1 w-full" type="text" :value="old('your_phone_number')" name="your_your_number" />
+                <x-jet-input id="your_phone_number" class="block mt-1 w-full" type="text" :value="old('your_phone_number')" name="your_phone_number" />
             </div>
 
             <div class="mt-4" x-show="role_id == 3">
-                <x-jet-label for="employee_title" value="{{ __('Employee Title') }}" />
-                <x-jet-input id="employee_title" class="block mt-1 w-full" type="text" :value="old('employee_title')" name="employee_title" />
+                <x-jet-label for="employee_job_id" value="{{ __('Job Identity') }}" />
+                <x-jet-input id="employee_job_id" class="block mt-1 w-full" type="text" :value="old('employee_job_id')" name="employee_job_id" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-jet-label for="terms">
-                        <div class="flex items-center">
-                            <x-jet-checkbox name="terms" id="terms"/>
+            <div class="mt-4">
+                <x-jet-label for="terms">
+                    <div class="flex items-center">
+                        <x-jet-checkbox name="terms" id="terms" />
 
-                            <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
+                        <div class="ml-2">
+                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                            ]) !!}
                         </div>
-                    </x-jet-label>
-                </div>
+                    </div>
+                </x-jet-label>
+            </div>
             @endif
 
             <div class="flex items-center justify-end mt-4">

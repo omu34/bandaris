@@ -8,9 +8,16 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;700&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+        <script src="https://cdn.tailwindcss.com"></script>
 
-        <!-- Styles -->
+        <!-- Scripts -->
+        {{--  @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         @livewireStyles
@@ -38,6 +45,8 @@
         </div>
 
         @stack('modals')
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
         @livewireScripts
     </body>

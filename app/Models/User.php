@@ -30,7 +30,7 @@ class User extends Authenticatable
         'role_id',
         'your_address',
         'your_phone_number',
-        'employee_title',
+        'employee_job_id',
     ];
 
     /**

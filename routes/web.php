@@ -30,7 +30,6 @@ Route::group(['middleware' => 'auth'], function() {
     });
    Route::group(['middleware' => 'role:employee', 'prefix' => 'employee', 'as' => 'employee.'], function() {
        Route::resource('/employee/clients', ClientController::class);
-    //    Route::get('/employee/clients', 'Employees\ClientController@index')->name('employee.clients.index');
 
    });
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function() {

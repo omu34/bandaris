@@ -17,7 +17,7 @@ class AddRolesFieldsToUsersTable extends Migration
             $table->foreignId('role_id')->constrained();
             $table->string('your_address')->nullable();
             $table->string('your_phone_number')->nullable();
-            $table->string('employee_title')->nullable();
+            $table->string('employee_job_id')->nullable();
         });
     }
 
